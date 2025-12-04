@@ -236,7 +236,7 @@ const Menu = () => {
                                     <div>
                                       <div className="flex items-center gap-2 justify-between mb-1p">
                                         <span
-                                          className={`font-bold text-textBlue text-left text-base`}
+                                          className={`font-bold text-brandBlue text-left text-base`}
                                         >
                                           {item.name}
                                         </span>
@@ -261,7 +261,7 @@ const Menu = () => {
                                   className={`flex-1 p-3 transition-all duration-300 group`}
                                 >
                                   <div className="flex items-center gap-2 mb-1">
-                                    <span className={`font-bold text-textBlue text-left text-baset`}>
+                                    <span className={`font-bold text-brandBlue text-left text-baset`}>
                                       {item.name}
                                     </span>
                                     {item.color && (
