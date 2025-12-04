@@ -13,12 +13,12 @@ module.exports = {
     },
     extend: {
       colors: {
-        brandBlue: "#0D5D9C",
-        brandLightBlue: "#DBE3FF",
-        brandVLightBlue: "#deeeee",
-        brandNeonBlue: "#00BBDC",
-        textBlue: "#407EC9",
-        brandRed: "#EE3224",
+        brandBlue: "#0D943F",
+        brandLightBlue: "#EDF3B2",
+        brandVLightBlue: "#fcffe0ff",
+        brandNeonBlue: "#C0DF16",
+        textBlue: "#C0DF16",
+        brandRed: "#E6007E",
         brandLightRed: "#FF4B4B",
         brandGreen: "#009E44",
         brandLightGreen: "#C4D600",

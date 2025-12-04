@@ -114,7 +114,7 @@ const Layout = () => {
                     <span className="sr-only">View your favourites</span>
                 </button>
               </div>
-              <div className="flex items-center space-x-4 pt-2 ml-1  md:ml-0 group">
+              <div className="flex items-center space-x-4 ml-1  md:ml-0 group">
                 <button onClick={() => {
                   navigate('/');
                    window.scrollTo({
@@ -124,13 +124,8 @@ const Layout = () => {
                   });
                 }} className="flex items-center">
                   <img
-                    src="/jack-logo.svg"
-                    alt="The Entertainer"
-                    className="w-[45px] md:w-[69px] lg:w-[79px] transition-all translate-y-2.5 group-hover:translate-y-0 group-hover:scale-105"
-                  />
-                  <img
-                    src="/text-logo.svg"
-                    alt="The Entertainer"
+                    src="/logo-elc.png"
+                    alt="Early Learning Centre"
                     className="w-[101px] md:w-[164px] lg:w-[174px]"
                   />
                 </button>
@@ -183,23 +178,23 @@ const Layout = () => {
                     <MiniCart />
                 </div>
                 <a
-                  href="https://www.elc.co.uk/"
+                  href="https://www.thetoyshop.com/"
                   rel="noreferrer"
                   target="_blank"
-                  className="py-2 h-full md:h-auto flex items-center rounded-md rounded-tr-[0] rounded-br-xl md:rounded-br-2xl md:rounded-tr-md md:rounded-br-md px-2 md:px-3 bg-white hover:bg-grey-100 transition-all hover:scale-105 hover:shadow-md"
+                  className="py-1 h-full md:h-auto flex items-center rounded-md rounded-tr-[0] rounded-br-xl md:rounded-br-2xl md:rounded-tr-md md:rounded-br-md px-2  bg-white hover:bg-grey-100 transition-all hover:scale-105 hover:shadow-md"
                 >
                   <img
-                    src="/elc-logo-full.svg"
-                    alt="visit Early Learning Centre"
-                    className="h-7 hidden md:block"
+                    src="/jack-logo.svg"
+                    alt="visit The entertainer"
+                    className="h-12 hidden md:block"
                   />
                   <img
-                    src="/elc-logo-small.svg"
-                    alt="visit Early Learning Centre"
-                    className="h-7 md:hidden"
+                    src="/jack-logo.svg"
+                    alt="visit TheEntertainer"
+                    className="h-10 md:hidden"
                   />
                   <span className="sr-only">
-                    visit the Early Learning Centre website
+                    visit The Entertainer website
                   </span>
                 </a>
               </div>
