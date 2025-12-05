@@ -494,7 +494,7 @@ const ProductCard = ({ product }) => {
 
       <div className="flex flex-col rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
         <div className="relative group">
-          <button onClick={goToLinkHandler}>
+          <button className="p-2" onClick={goToLinkHandler}>
             <img
               src={image || "/placeholder.svg"}
               alt={name}
@@ -505,7 +505,7 @@ const ProductCard = ({ product }) => {
             <img
               src={alternateImage || "/placeholder-alt.svg"}
               alt={`${name} - alternate view`}
-              className="absolute top-4 inset-0 w-full object-cover opacity-0 group-hover:opacity-100 transition-all duration-300"
+              className="absolute p-2 inset-0 w-full object-cover opacity-0 group-hover:opacity-100 transition-all duration-300"
             />
           </button>
           
