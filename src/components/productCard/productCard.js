@@ -494,7 +494,7 @@ const ProductCard = ({ product }) => {
 
       <div className="flex flex-col rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
         <div className="relative group">
-          <button className="pt-4" onClick={goToLinkHandler}>
+          <button onClick={goToLinkHandler}>
             <img
               src={image || "/placeholder.svg"}
               alt={name}
@@ -508,7 +508,9 @@ const ProductCard = ({ product }) => {
               className="absolute top-4 inset-0 w-full object-cover opacity-0 group-hover:opacity-100 transition-all duration-300"
             />
           </button>
-          <div className="absolute top-2 left-1/2 -translate-x-1/2 flex w-full gap-1 flex justify-center drop-shadow-md">
+          
+          
+          <div className="flex w-full gap-1 flex justify-center drop-shadow-md">
             {isNew && (
               <div className="inline-flex items-center rounded-lg px-2 py-0.5 text-xs md:text-sm font-bold bg-brandGreen text-white">
                 <span className="shadow-text-green">NEW TOYS</span>
@@ -520,47 +522,6 @@ const ProductCard = ({ product }) => {
               </div>
             )}
           </div>
-          <div className="absolute top-2 right-[-5px] md:top-3 md:right-1 flex flex-col md:gap-2 opacity-0 group-hover:opacity-100 opacity-100 md:opacity-0 transition-opacity">
-            <button
-              onClick={wishlistItems.some(item => product.id === item.id) ? removeProductFromWishlist : addProductToWishlist}
-              name="Add to favourites"
-              className={`relative inline-flex items-center justify-center md:gap-2 whitespace-nowrap text-lg h-4 md:h-9  transition-all hover:scale-105 hover:text-brandPink`}
-            >
-              <Heart
-                className={`h-5 md:h-8 w-5 md:w-8 ${
-                  wishlistItems.some(item => product.id === item.id)
-                    ? "text-brandPink animate-bigheart"
-                    : "text-brandBlue"
-                }`}
-                fill={wishlistItems.some(item => product.id === item.id) ? "#FF7BAC" : "transparent"}
-              />
-              <Heart
-                className={`absolute bottom-0 left-1 h-2 w-2 opacity-0 text-transparent ${
-                  wishlistItems.some(item => product.id === item.id)
-                    ? "animate-miniheartleft text-brandPink"
-                    : "text-brandBlue"
-                }`}
-                fill={wishlistItems.some(item => product.id === item.id) ? "#FF7BAC" : "transparent"}
-              />
-              <Heart
-                className={`absolute bottom-0 right-2 h-2 w-2 opacity-0 text-transparent ${
-                  wishlistItems.some(item => product.id === item.id)
-                    ? "animate-miniheartright text-brandPink"
-                    : "text-brandBlue"
-                }`}
-                fill={wishlistItems.some(item => product.id === item.id) ? "#FF7BAC" : "transparent"}
-              />
-              <span className="sr-only">Add to favourites</span>
-            </button>
-            <button
-              name="quick view"
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium h-9 rounded-md px-3 transition-all hover:scale-105"
-              onClick={() => openQuickView(product)}
-            >
-              <Eye className="h-5 md:h-8 w-5 md:w-8 text-textBlue hover:text-brandMediumGreen transition-all" />
-              <span className="sr-only">Open quick view</span>
-            </button>
-          </div>
         </div>
         <div className="p-4 flex flex-col grow">
           <div className="flex flex-wrap justify-center mb-1">
@@ -570,17 +531,7 @@ const ProductCard = ({ product }) => {
             <h2 className="text-gray-600 flex-grow font-bold text-sm md:text-base mb-2 leading-tight line-clamp-2 grow">
               {name}
             </h2>
-            <div className="flex items-center justify-center gap-2">
-              <div className="flex items-center">
-                <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                <span className="text-xs text-textBlue ml-1">(3)</span>
-              </div>
-            </div>
-            <div className="flex items-center justify-center gap-1 my-2">
+            <div className="flex items-center justify-center">
               <span className="text-base font-bold text-brandRed">
                 £{price}
               </span>
@@ -590,10 +541,61 @@ const ProductCard = ({ product }) => {
                 </span>
               )}
             </div>
+            <div className="flex items-center justify-between pr-2">
+              <div className="flex flex-col transition-opacity">
+                <button
+                  onClick={wishlistItems.some(item => product.id === item.id) ? removeProductFromWishlist : addProductToWishlist}
+                  name="Add to favourites"
+                  className={`relative inline-flex items-center justify-center md:gap-2 whitespace-nowrap text-lg h-4 md:h-9  transition-all hover:scale-105 hover:text-brandPink`}
+                >
+                  <Heart
+                    className={`h-5 md:h-6 w-3 md:w-6 ${
+                      wishlistItems.some(item => product.id === item.id)
+                        ? "text-brandPink animate-bigheart"
+                        : "text-brandBlue"
+                    }`}
+                    fill={wishlistItems.some(item => product.id === item.id) ? "#FF7BAC" : "transparent"}
+                  />
+                  <Heart
+                    className={`absolute bottom-0 left-1 h-2 w-2 opacity-0 text-transparent ${
+                      wishlistItems.some(item => product.id === item.id)
+                        ? "animate-miniheartleft text-brandPink"
+                        : "text-brandBlue"
+                    }`}
+                    fill={wishlistItems.some(item => product.id === item.id) ? "#FF7BAC" : "transparent"}
+                  />
+                  <Heart
+                    className={`absolute bottom-0 right-2 h-2 w-2 opacity-0 text-transparent ${
+                      wishlistItems.some(item => product.id === item.id)
+                        ? "animate-miniheartright text-brandPink"
+                        : "text-brandBlue"
+                    }`}
+                    fill={wishlistItems.some(item => product.id === item.id) ? "#FF7BAC" : "transparent"}
+                  />
+                  <span className="sr-only">Add to favourites</span>
+                </button>
+              </div>
+              <div className="flex items-center">
+                <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                <span className="text-xs text-textBlue ml-1">(3)</span>
+              </div>
+              <button
+                  name="quick view"
+                  className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium h-9 rounded-md pl-2 transition-all hover:scale-105"
+                  onClick={() => openQuickView(product)}
+                >
+                  <Eye className="h-5 md:h-6 w-3 md:w-6 text-textBlue hover:text-brandBlue transition-all" />
+                  <span className="sr-only">Open quick view</span>
+                </button>
+            </div>
           </button>
           <div className="flex items-center justify-center">
             <Button
-              className="shadow-md hover:shadow-lg w-full group inline-flex items-center justify-center font-bold text-base rounded-[30px] bg-brandGreen text-white py-2 px-4 pl-0 transition-all hover:bg-brandLightGreen hover:scale-105"
+              className="shadow-md hover:shadow-lg w-full group inline-flex items-center justify-center font-bold text-base rounded-[30px] bg-brandGreen text-white py-2 px-4 pl-0 transition-all hover:bg-brandLightGreen hover:scale-105 mt-1"
               iconpath={
                 <svg
                   width="22"
