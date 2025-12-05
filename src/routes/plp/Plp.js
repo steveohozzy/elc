@@ -1372,13 +1372,12 @@ const Plp = () => {
                                   </div>
                                     <h2 className="text-brandBlue flex-grow font-bold text-sm md:text-base mb-2 leading-tight line-clamp-2 grow">
                                       <button onClick={() => { navigate(`/category/?brand=lego`);}}>
-                                        This is your girl's world. She Built It.
+                                        This is your girl's world.
                                       </button>
                                     </h2>
                                   <div className="text-brandBlue mb-3 text-center text-sm">
                                     <button onClick={() => { navigate(`/category/?brand=lego`);}}>
                                       Unleash her creative potential
-                                      with LEGO sets
                                     </button>
                                   </div>
                                   <Button

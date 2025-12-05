@@ -493,7 +493,7 @@ const ProductCard = ({ product }) => {
       )}
 
       <div className="flex flex-col rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
-        <div className="relative group">
+        <div className="relative group mb-4">
           <button className="p-2" onClick={goToLinkHandler}>
             <img
               src={image || "/placeholder.svg"}
@@ -510,7 +510,7 @@ const ProductCard = ({ product }) => {
           </button>
           
           
-          <div className="flex w-full gap-1 flex justify-center drop-shadow-md">
+          <div className="absolute flex w-full gap-1 flex justify-center drop-shadow-md">
             {isNew && (
               <div className="inline-flex items-center rounded-lg px-2 py-0.5 text-xs md:text-sm font-bold bg-brandGreen text-white">
                 <span className="shadow-text-green">NEW TOYS</span>
@@ -528,7 +528,7 @@ const ProductCard = ({ product }) => {
             <div className="inline-flex items-center text-xs text-gray-400">{brand}</div>
           </div>
           <button className="flex flex-col h-full" onClick={goToLinkHandler}>
-            <h2 className="text-gray-600 flex-grow font-bold text-sm md:text-base mb-2 leading-tight line-clamp-2 grow">
+            <h2 className="text-gray-600 font-bold text-sm md:text-base leading-tight line-clamp-2">
               {name}
             </h2>
             <div className="flex items-center justify-center">
@@ -541,12 +541,13 @@ const ProductCard = ({ product }) => {
                 </span>
               )}
             </div>
-            <div className="flex items-center justify-between pr-2">
+          </button>
+            <div className="flex items-center justify-between">
               <div className="flex flex-col transition-opacity">
                 <button
                   onClick={wishlistItems.some(item => product.id === item.id) ? removeProductFromWishlist : addProductToWishlist}
                   name="Add to favourites"
-                  className={`relative inline-flex items-center justify-center md:gap-2 whitespace-nowrap text-lg h-4 md:h-9  transition-all hover:scale-105 hover:text-brandPink`}
+                  className={`relative inline-flex items-center justify-center whitespace-nowrap text-lg h-4 md:h-6  transition-all hover:scale-105 hover:text-brandPink`}
                 >
                   <Heart
                     className={`h-5 md:h-6 w-3 md:w-6 ${
@@ -575,6 +576,7 @@ const ProductCard = ({ product }) => {
                   <span className="sr-only">Add to favourites</span>
                 </button>
               </div>
+              <button className="flex flex-col" onClick={goToLinkHandler}>
               <div className="flex items-center">
                 <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                 <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
@@ -583,16 +585,16 @@ const ProductCard = ({ product }) => {
                 <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                 <span className="text-xs text-textBlue ml-1">(3)</span>
               </div>
+              </button>
               <button
                   name="quick view"
-                  className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium h-9 rounded-md pl-2 transition-all hover:scale-105"
+                  className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium h-6 rounded-md pl-2 transition-all hover:scale-105"
                   onClick={() => openQuickView(product)}
                 >
                   <Eye className="h-5 md:h-6 w-3 md:w-6 text-textBlue hover:text-brandBlue transition-all" />
                   <span className="sr-only">Open quick view</span>
                 </button>
             </div>
-          </button>
           <div className="flex items-center justify-center">
             <Button
               className="shadow-md hover:shadow-lg w-full group inline-flex items-center justify-center font-bold text-base rounded-[30px] bg-brandGreen text-white py-2 px-4 pl-0 transition-all hover:bg-brandLightGreen hover:scale-105 mt-1"
