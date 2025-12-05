@@ -124,9 +124,9 @@ const Layout = () => {
                   });
                 }} className="flex items-center">
                   <img
-                    src="/logo-elc.png"
+                    src="/logo-elc-crop.png"
                     alt="Early Learning Centre"
-                    className="w-[101px] md:w-[164px] lg:w-[174px]"
+                    className="w-[101px] md:w-[154px] py-4"
                   />
                 </button>
               </div>

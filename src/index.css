@@ -16,8 +16,8 @@
     filter: url(#round);
   }
   :root {
-    --swiper-pagination-color: #407ec9;
-    --swiper-pagination-bullet-inactive-color: #407ec9;
+    --swiper-pagination-color: #0D943F;
+    --swiper-pagination-bullet-inactive-color: #0D943F;
     --swiper-pagination-bullet-inactive-opacity: 0.5;
     --swiper-pagination-bottom: 0;
   }
