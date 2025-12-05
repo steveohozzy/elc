@@ -428,10 +428,10 @@ const ProductDetails = () => {
               </div>
               <div className="w-1/2 xl:w-auto">
                 <div className="flex flex-wrap items-center notices justify-end font-semibold">
-                  <span className="text-center text-brandNeonBlue text-xs md:text-sm border border-brandNeonBlue px-2 py-1 rounded-md mb-2 xl:mb-0 w-full xl:w-auto">
+                  <span className="text-center text-brandBlue text-xs md:text-sm border border-brandBlue px-2 py-1 rounded-md mb-2 xl:mb-0 w-full xl:w-auto">
                     3 OTHER STYLES
                   </span>
-                  <span className="text-center text-white bg-brandNeonBlue text-xs lg:text-sm border border-brandNeonBlue px-2 py-1 rounded-md xl:ml-2 w-full xl:w-auto">
+                  <span className="text-center text-gray-500 bg-brandNeonBlue text-xs lg:text-sm border border-brandNeonBlue px-2 py-1 rounded-md xl:ml-2 w-full xl:w-auto">
                     FREE UK DELIVERY
                   </span>
                 </div>
@@ -578,7 +578,7 @@ const ProductDetails = () => {
               </div>
               <div className="w-full lg:w-auto mb-4 lg:mb-0 order-1 lg:order-2">
                 <div className="flex flex-wrap items-center notices xl:justify-end">
-                  <span className="flex items-center justify-between text-brandNeonBlue border-[2px] border-brandNeonBlue p-2 rounded-md mb-2 xl:mb-0 w-full lg:w-auto font-bold">
+                  <span className="flex items-center justify-between text-brandBlue border-[2px] border-brandBlue p-2 rounded-md mb-2 xl:mb-0 w-full lg:w-auto font-bold">
                     <span className="font-semibold">Other styles</span>
                     <div className="flex items-center">
                       <button
@@ -791,7 +791,7 @@ const ProductDetails = () => {
 
                 <div
                   id="bundle"
-                  className={`lg:w-1/2 lg:mt-4 mb-4 lg:mb-0 grid ${bundleExpanded ? 'grid-cols-2 gap-4 p-6 -ml-6 -mr-6 md:mr-0 md:ml-0' : 'grid-cols-4'} border-[3px] border-brandNeonBlue rounded-xl relative transition-all`}
+                  className={`lg:w-1/2 lg:mt-4 mb-4 lg:mb-0 grid ${bundleExpanded ? 'grid-cols-2 gap-4 p-6 -ml-6 -mr-6 md:mr-0 md:ml-0' : 'grid-cols-4'} border-[3px] border-brandBlue rounded-xl relative transition-all`}
                 >
                   {bundleExpanded &&
                     <button onClick={() => {setBundleExpanded(false)}} className={`absolute -top-3.5 left-1/2 -translate-x-1/2 z-30 shadow-md hover:shadow-lg group items-center justify-center font-bold rounded-full bg-textBlue text-white transition-all hover:bg-brandBlue hover:scale-105 w-7 h-7 flex justify-cener items-center p-1`}>
@@ -1093,10 +1093,14 @@ const ProductDetails = () => {
         )}
 
         <div className="w-full text-center mt-16">
-          <div className="text-2xl md:text-3xl lg:text-4xl font-bold md:!leading-[1.2] text-transparent text-center mt-5 mb-3 md:mt-12 md:mb-3.5 drop-shadow-md">
-            <span className='bg-gradient-to-r from-brandBlue via-textBlue to-brandBlue bg-clip-text md:!leading-[1.2] text-transparent textStroke'>
-              Top picks
-            </span>
+          <div className="flex justify-center relative mt-10">
+            <div className="pt-2 pb-3 px-6 bg-brandNeonBlue rounded-xl border-[3px] border-brandBlue">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold md:!leading-[1.2] text-transparent text-center drop-shadow-md">
+                <span className='bg-brandBlue bg-clip-text md:!leading-[1.2] text-transparent textStroke'>
+                  You may like...
+                </span>
+              </h3>
+            </div>
           </div>
           <div className="bg-white pt-8 pb-5 px-3 rounded-xl mt-[-27px] shadow-sm">
             <div className="flex gap-4 justify-center mx-auto [&_.swiper-pagination]:relative [&_.swiper-pagination]:top-[-20px!important] [&_.swiper-pagination]:mt-3 [&_.swiper-pagination-bullet]:size-3 [&_.swiper-pagination-bullet-active]:scale-[1.2] hover:[&_.swiper-pagination-bullet]:scale-[1.2]">
@@ -1252,10 +1256,14 @@ const ProductDetails = () => {
         </div>
 
         <div id="reviews" className="w-full text-center mt-16">
-          <div className="text-2xl md:text-3xl lg:text-4xl font-bold md:!leading-[1.2] text-transparent text-center mt-5 mb-3 md:mt-12 md:mb-3.5 drop-shadow-md">
-            <span className='bg-gradient-to-r from-brandBlue via-textBlue to-brandBlue bg-clip-text md:!leading-[1.2] text-transparent textStroke'>
-              Reviews
-            </span>
+          <div className="flex justify-center relative mt-10">
+            <div className="pt-2 pb-3 px-6 bg-brandNeonBlue rounded-xl border-[3px] border-brandBlue">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold md:!leading-[1.2] text-transparent text-center drop-shadow-md">
+                <span className='bg-brandBlue bg-clip-text md:!leading-[1.2] text-transparent textStroke'>
+                  Reviews
+                </span>
+              </h3>
+            </div>
           </div>
           <div className="bg-white pt-10 pb-8 px-8 rounded-xl mt-[-27px] shadow-sm">
             <div className="flex justify-between flex-wrap">
