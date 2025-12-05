@@ -42,11 +42,11 @@ const TopSellersCarousel = ({setShowSearchBox, filteredProducts, startedSearch})
                   <div className="overflow-hidden flex flex-col">
                     <div>
                       <div className="text-[8px] leading-[8px] text-gray-400 mt-1 mb-1">{product.brand}</div>
-                      <h3 className="text-[10px] font-bold text-brandBlue mb-2 grow leading-[1.2] line-clamp-2">{product.name}</h3>
+                      <h3 className="text-[10px] font-bold text-gray-500mb-2 grow leading-[1.2] line-clamp-2">{product.name}</h3>
                     </div>
                     <div className="price">
                       <div className="flex items-end">
-                        <span className="text-brandRed font-bold text-[12px]">
+                        <span className="text-brandBlue font-bold text-[12px]">
                           £{product.price}
                         </span>
                         {product.originalPrice && (

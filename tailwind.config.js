@@ -17,7 +17,7 @@ module.exports = {
         brandLightBlue: "#EDF3B2",
         brandVLightBlue: "#fcffe0ff",
         brandNeonBlue: "#C0DF16",
-        textBlue: "#C0DF16",
+        textBlue: "#0D943F",
         brandRed: "#E6007E",
         brandLightRed: "#FF4B4B",
         brandGreen: "#009E44",

@@ -40,7 +40,6 @@ const HomePanels = () => {
               <div className="text-white mb-5 text-center hidden md:block">
                 <button onClick={goToLinkHandler}>
                   ...and that's the way it is. Unleash her creative potential
-                  with LEGO sets
                 </button>
               </div>
               <Button 
@@ -61,32 +60,20 @@ const HomePanels = () => {
         <div className="rounded-xl bg-brandBlue flex flex-wrap flex-row-reverse md:flex-row h-full">
           
           <div className="w-full rounded-xl overflow-hidden">
-            <video
-              className="object-cover w-full h-[calc(100%+1px)] rounded-xl"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source
-                src="https://www.thetoyshop.com/medias/lego-test-video.mp4?context=bWFzdGVyfHJvb3R8MTg0NTg0MXx2aWRlby9tcDR8YUdVd0wyZ3laUzh4TWpVeU1qWTVNVFE1TXpreE9DOXNaV2R2TFhSbGMzUXRkbWxrWlc4dWJYQTB8MzE5MWY1M2FiYmQ4ODA4NDc4NmYzMDUwOWU5MmZiMzIyNTQxNDYwZTBhMzI3NmUyODNmMDIzYjA1YWMzZTRiYQ"
-                type="video/mp4"
-              />
-            </video>
+            <img src="https://www.elc.co.uk/medias/freehelmet-elc-story-v2.jpg?context=bWFzdGVyfHJvb3R8MjYwNjg4fGltYWdlL2pwZWd8YURFNEwyaGtZeTh4TWpZMU1UQXhNamswTnprNU9DOW1jbVZsYUdWc2JXVjBYMlZzWTE5emRHOXllVjkyTWk1cWNHY3xkOTBlZmE1OTkyM2QyM2E3NGRhNTY1OGNjN2Y4YzdiYWEwYThhMzFlZjFkNWU1M2ExMzM4OTY2NjZiY2IwM2Zh" alt="promo" className="w-full h-auto"/>
           </div>
 
           <div className="w-full flex flex-col justify-center items-center py-3 p-6 lg:p-12 lg:py-6">
               <div className="mb-4">
                 <h2 className="text-lg lg:text-xl text-white font-bold text-center">
                   <button onClick={goToLinkHandler}>
-                    This is your girl's world. She Built It.
+                    Free helmet with any scooter
                   </button>
                 </h2>
               </div>
               <div className="text-white mb-5 text-center hidden md:block">
                 <button onClick={goToLinkHandler}>
-                  ...and that's the way it is. Unleash her creative potential
-                  with LEGO sets
+                  Get a free helmet wirth £39.99 when you purchase a scooter
                 </button>
               </div>
               <Button 

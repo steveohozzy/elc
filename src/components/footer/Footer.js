@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
 import Dropdown from "../dropdown/Dropdown";
-import Button from "../button/Button";
 
 const Footer = () => {
   const navigate = useNavigate();
