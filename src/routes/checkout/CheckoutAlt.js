@@ -2250,7 +2250,7 @@ const CheckoutAlt = () => {
                                 <Dropdown
                                   expanded={true}
                                   title="Delivery Options"
-                                  className="relative bg-brandLightBlue p-4 px-2 sm:px-4 rounded-md text-brandBlue font-bold flex items-center justify-between w-full"
+                                  className="relative bg-brandLightBlue p-4 px-2 sm:px-4 rounded-md text-gray-500 font-bold flex items-center justify-between w-full"
                                   answer={
                                     <>
                                       <div className="py-6 px-4">

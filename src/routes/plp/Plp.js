@@ -1682,8 +1682,8 @@ const Plp = () => {
 
         {/* Info Sections */}
         <div className="mt-16 grid md:grid-cols-2 gap-8">
-          <div className="rounded-lg border shadow-sm p-6 bg-gradient-to-br from-blue-50 to-purple-50">
-            <h2 className="text-2xl font-bold mb-4 text-blue-900">
+          <div className="rounded-lg border shadow-sm p-6 bg-gradient-to-br from-green-50 to-green-250">
+            <h2 className="text-2xl font-bold mb-4 text-green-900">
               Explore the Best Action Figure Toys for Kids
             </h2>
             <p className="text-gray-700 leading-relaxed">

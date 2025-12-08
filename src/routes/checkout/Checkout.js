@@ -261,7 +261,7 @@ const Checkout = () => {
                                     <Dropdown 
                                       expanded={true}
                                       title="Delivery Options"
-                                      className="relative bg-brandLightBlue p-4 px-2 sm:px-4 rounded-md text-brandBlue font-bold flex items-center justify-between w-full"
+                                      className="relative bg-brandLightBlue p-4 px-2 sm:px-4 rounded-md text-gray-500 font-bold flex items-center justify-between w-full"
                                       answer={
                                         <>
                                         <div className='py-6 px-4'>
@@ -481,7 +481,7 @@ const Checkout = () => {
                                 <Dropdown 
                                   expanded={true}
                                   title="Delivery Address (*Mandatory)"
-                                  className="bg-brandLightBlue p-4 px-2 sm:px-4 rounded-md text-brandBlue font-bold flex items-center justify-between w-full"
+                                  className="bg-brandLightBlue p-4 px-2 sm:px-4 rounded-md text-gray-500 font-bold flex items-center justify-between w-full"
                                   answer={
                                     <form id="address-form" className='py-6 space-y-8 px-4'>
                                         <div className={`flex h-[44px] px-3 rounded-lg w-full border border-[3px] border-brandBlue relative ${name && 'border-red-600'}`}>
@@ -834,7 +834,7 @@ const Checkout = () => {
                                     <Dropdown 
                                       expanded={true}
                                       title="Delivery Options"
-                                      className="relative bg-brandLightBlue p-4 px-2 sm:px-4 rounded-md text-brandBlue font-bold flex items-center justify-between w-full"
+                                      className="relative "
                                       answer={
                                         <>
                                         <div className='py-6 px-4'>
@@ -1075,7 +1075,7 @@ const Checkout = () => {
                     <div className='w-full lg:w-[33.3333333%] px-3'>
                         <div className='border-[3px] border-gray-300 rounded-xl md:px-3 hidden lg:block'>
                               {(
-                                cartItems.map((item) => <CartProductTile key={item.id} product={item} nocontrols={true} />)
+                                cartItems.map((item) => <CartProductTile key={item.id} product={item} nocontrols={true} isMiniCart={true} />)
                               )}
                         </div>
 
