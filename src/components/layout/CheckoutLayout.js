@@ -18,9 +18,9 @@ const CheckoutLayout = () => {
                         <div className="flex items-center space-x-4 pt-2 ml-2 md:pt-4 md:ml-0">
                              <Link to="/">
                                 <img
-                                    src="/entertainer-logo.svg"
-                                    alt="The Entertainer"
-                                    className="w-[137px] md:w-[218px]"
+                                    src="/logo-elc-crop.png"
+                                    alt="The Early Learning Center"
+                                    className="w-[87px] md:w-[148px]"
                                 />
                             </Link>
                         </div>
