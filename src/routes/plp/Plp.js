@@ -272,87 +272,72 @@ const Plp = () => {
   }
 
   const renderPaginationButtons = () => {
-    const buttons = []
-    const maxVisiblePages = 5
+  const buttons = [];
+  const maxVisiblePages = 5;
 
-    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2))
-    const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1)
+  let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+  const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
 
-    if (endPage - startPage + 1 < maxVisiblePages) {
-      startPage = Math.max(1, endPage - maxVisiblePages + 1)
-    }
-
-    // Previous button
-    buttons.push(
-      <button
-        key="prev"
-        onClick={() => goToPage(currentPage - 1)}
-        disabled={currentPage === 1}
-        className="flex items-center gap-1"
-      >
-        <img src="/flag.svg" alt="previous page" className="h-[60px] w-auto mt-[25px] mr-2 relative z-[2]" />
-      </button>,
-    )
-
-    // First page
-    if (startPage > 1) {
-      if (startPage > 2) {
-        buttons.push(
-          <span key="ellipsis2" className="px-2 text-brandBlue text-2xl font-bold">
-            ...
-          </span>,
-        )
-      }
-    }
-
-    // Page numbers
-    for (let i = startPage; i <= endPage; i++) {
-      buttons.push(
-        <button className={`relative px-[2px] md:px-[5px] md:px-[10px] text-white ${currentPage === i ? 'font-bold' : ''}`} key={i} onClick={() => goToPage(i)}>
-          {i === endPage ?
-            <img src="/train-front.svg" alt="pagination-step" className={`h-[60px] w-auto ${currentPage === startPage ? 'mt-[-25px]' : 'mt-[-23px]'} relative z-[2]`} />
-            :
-            <img src="/train-cart.svg" alt="pagination-step" className="h-10 w-10 z-[2]" />
-          }
-          <span className={`absolute z-[2] ${currentPage === i ? '' : 'opacity-[0.6]'} ${i === endPage ? 'left-[28px] md:left-[30px] top-[3px]' : 'left-[16px] md:left-[21px] top-[7px]'}`}>{i}</span>
-          <span className={`h-[3px] left-0 z-[1] absolute block bg-brandBlue bottom-[16px] ${i === endPage ? 'w-[calc(100%-15px)] bottom-[14px]' : 'w-full'}`}>&nbsp;</span>
-        </button>,
-      )
-    }
-
-    // Last page
-    if (endPage < totalPages) {
-      if (endPage < totalPages - 1) {
-        buttons.push(
-          <span key="ellipsis2" className="px-2 text-brandBlue text-2xl font-bold">
-            ...
-          </span>,
-        )
-      }
-      // buttons.push(
-      //   <button
-      //     key={totalPages}
-      //     onClick={() => goToPage(totalPages)}
-      //   >
-      //     {totalPages}
-      //   </button>,
-      // )
-    }
-
-    // Next button
-    buttons.push(
-      <button
-        key="next"
-        onClick={() => goToPage(currentPage + 1)}
-        disabled={currentPage === totalPages}
-        className="flex items-center gap-1 relative ml-2"
-      >
-        <img src="/flag.svg" alt="previous page" className="h-[60px] scale-x-[-1] w-auto mt-[25px] relative z-[2]" />
-      </button>,
-    )
-
-    return buttons
+  if (endPage - startPage + 1 < maxVisiblePages) {
+    startPage = Math.max(1, endPage - maxVisiblePages + 1);
   }
+
+  // Previous button with left chevron
+  buttons.push(
+    <button
+      key="prev"
+      onClick={() => goToPage(currentPage - 1)}
+      disabled={currentPage === 1}
+      className="w-8 h-8 pb-1 flex items-center justify-center rounded-full mx-1 border-[3px] border-brandBlue text-brandBlue mr-2 text-2xl bg-white -rotate-90 disabled:text-brandLightBlue disabled:border-none">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up h-5 w-5" aria-hidden="true"><path d="m18 15-6-6-6 6"></path></svg>
+    </button>
+  );
+
+  // Ellipsis before start page
+  if (startPage > 1 && startPage > 2) {
+    buttons.push(
+      <span key="ellipsis-start" className="px-2 text-brandBlue font-semibold">
+        ...
+      </span>
+    );
+  }
+
+  // Page numbers as circles
+  for (let i = startPage; i <= endPage; i++) {
+    buttons.push(
+      <button
+        key={i}
+        onClick={() => goToPage(i)}
+        className={`transition-all w-8 h-8 flex items-center justify-center rounded-full mx-1 border-[3px] border-brandBlue hover:bg-white
+          ${currentPage === i ? 'bg-brandBlue text-white font-bold' : 'bg-transparent text-brandBlue'}`}
+      >
+        {i}
+      </button>
+    );
+  }
+
+  // Ellipsis after end page
+  if (endPage < totalPages && endPage < totalPages - 1) {
+    buttons.push(
+      <span key="ellipsis-end" className="px-2 text-brandBlue font-semibold">
+        ...
+      </span>
+    );
+  }
+
+  // Next button with right chevron
+  buttons.push(
+    <button
+      key="next"
+      onClick={() => goToPage(currentPage + 1)}
+      disabled={currentPage === totalPages}
+      className="w-8 h-8 pb-1 flex items-center justify-center rounded-full mx-1 border-[3px] border-brandBlue text-brandBlue lucide lucide-chevron-right mr-2 text-2xl bg-white rotate-90 disabled:text-brandLightBlue disabled:border-none">
+         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up h-5 w-5" aria-hidden="true"><path d="m18 15-6-6-6 6"></path></svg>
+    </button>
+  );
+
+  return buttons;
+};
 
   const location = useLocation();
 
@@ -673,7 +658,7 @@ const Plp = () => {
                             className="rounded-xl object-cover group-hover:scale-105 transition-all "
                           />
                         </div>
-                        <div className="w-3/5 text-xs md:text-sm text-brandBlue rounded-tr-xl rounded-br-xl font-semibold">
+                        <div className="w-3/5 text-xs md:text-sm text-gray-500 rounded-tr-xl rounded-br-xl font-semibold">
                           <div className="flex items-center h-full px-2 md:px-3 leading-[1.2]">
                             Pikachu 20" Pop Vinyl
                           </div>
@@ -910,7 +895,7 @@ const Plp = () => {
                     {/* Brand Filters with Search */}
                     <Dropdown
                       title="Brands"
-                      className="w-full text-brandBlue flex items-center border-b-2 border-b-textBlue py-3"
+                      className="w-full text-gray-500 flex items-center border-b-2 border-b-textBlue py-3 font-semibold"
                       answer={
                         <>
                           <div className="relative my-3">
@@ -948,7 +933,7 @@ const Plp = () => {
                     {/* Type Filters */}
                     <Dropdown
                       title="Type"
-                      className="w-full text-brandBlue flex items-center border-b-2 border-b-textBlue py-3"
+                      className="w-full text-gray-500 flex items-center border-b-2 border-b-textBlue py-3 font-semibold"
                       answer={
                         <div className="space-y-3 pt-3">
                         {types.map((type) => {
@@ -981,7 +966,7 @@ const Plp = () => {
                                   </g>
                                 </svg>
                               </span>
-                              <span className="text-sm text-brandBlue">
+                              <span className="text-sm text-gray-500">
                                 {type.name} ({count})
                               </span>
                             </label>
@@ -994,7 +979,7 @@ const Plp = () => {
                     {/* Age Group Filters */}
                     <Dropdown
                       title="Age Groups"
-                      className="w-full text-brandBlue flex items-center border-b-2 border-b-textBlue py-3"
+                      className="w-full text-gray-500 flex items-center border-b-2 border-b-textBlue py-3 font-semibold"
                       answer={
                         <div className="space-y-3 pt-3">
                           {ageGroups.map((age) => {
@@ -1027,7 +1012,7 @@ const Plp = () => {
                                     </g>
                                   </svg>
                                 </span>
-                                <span className="text-sm text-brandBlue">
+                                <span className="text-sm text-gray-500">
                                   {age.name} ({count})
                                 </span>
                               </label>
@@ -1039,7 +1024,7 @@ const Plp = () => {
                     {/* Features Filters */}
                     <Dropdown
                       title="Features"
-                       className="w-full text-brandBlue flex items-center border-b-2 border-b-textBlue py-3"
+                       className="w-full text-gray-500 flex items-center border-b-2 border-b-textBlue py-3 font-semibold"
                        answer={
                         <div className="space-y-3 pt-3">
                         {features.map((feature) => {
@@ -1072,7 +1057,7 @@ const Plp = () => {
                                   </g>
                                 </svg>
                               </span>
-                              <span className="text-sm text-brandBlue">
+                              <span className="text-sm text-gray-500">
                                 {feature.name} ({count})
                               </span>
                             </label>
@@ -1085,7 +1070,7 @@ const Plp = () => {
                     {/* Size Filters */}
                     <Dropdown
                       title="Size"
-                      className="w-full text-brandBlue flex items-center border-b-2 border-b-textBlue py-3"
+                      className="w-full text-gray-500 flex items-center border-b-2 border-b-textBlue py-3 font-semibold"
                       answer={
                         <div className="space-y-3 pt-3">
                         {sizes.map((size) => {
@@ -1118,7 +1103,7 @@ const Plp = () => {
                                   </g>
                                 </svg>
                               </span>
-                              <span className="text-sm text-brandBlue">
+                              <span className="text-sm text-gray-500">
                                 {size.name} ({count})
                               </span>
                             </label>
@@ -1131,7 +1116,7 @@ const Plp = () => {
                     {/* Price Range */}
                     <Dropdown
                       title="Price Range"
-                      className="w-full text-brandBlue flex items-center border-b-2 border-b-textBlue py-3"
+                      className="w-full text-gray-500 flex items-center border-b-2 border-b-textBlue py-3 font-semibold"
                       answer={
                         <div className="space-y-3">
                         <div className="flex items-center space-x-2 mt-3">
@@ -1163,7 +1148,7 @@ const Plp = () => {
                             className="flex h-10 rounded-md border border-input bg-background px-3 py-2 placeholder:text-muted-foreground text-brandBlue w-20 text-sm"
                           />
                         </div>
-                        <div className="text-sm text-brandBlue">
+                        <div className="text-sm text-gray-500">
                           £{priceRange[0]} - £{priceRange[1]}
                         </div>
                       </div>
@@ -1173,7 +1158,7 @@ const Plp = () => {
                     {/* Additional Filters */}
                     <Dropdown
                       title="Additional Filters"
-                      className="w-full text-brandBlue flex items-center border-b-2 border-b-textBlue py-3"
+                      className="w-full text-gray-500 flex items-center border-b-2 border-b-textBlue py-3 font-semibold"
                       answer={
                         <div className="space-y-3">
                         <label className="relative flex items-center space-x-2 cursor-pointer mt-3">
@@ -1202,7 +1187,7 @@ const Plp = () => {
                               </g>
                             </svg>
                           </span>
-                          <span className="text-sm text-brandBlue">
+                          <span className="text-sm text-gray-500">
                             In Stock Only
                           </span>
                         </label>
@@ -1221,7 +1206,7 @@ const Plp = () => {
             {/* Active Filters Display */}
             {hasActiveFilters && (
               <div className="flex flex-wrap items-center gap-2 my-2 w-full">
-                <span className="text-sm text-brandBlue font-medium">
+                <span className="text-sm text-gray-500 font-medium">
                   Active filters:
                 </span>
                 {selectedBrands.map((brand) => (
@@ -1675,7 +1660,7 @@ const Plp = () => {
           <>
             {/* Pagination */}
             {totalPages > 1 && (
-              <div className="flex items-center justify-center flex-wrap mt-8 relative">{renderPaginationButtons()}<span className="opacity-[0.3] border-dashed border-brandBlue border-b-[5px] w-full absolute bottom-[15px]"></span></div>
+              <div className="flex items-center justify-center flex-wrap mt-8 relative">{renderPaginationButtons()}</div>
             )}
           </>
         }

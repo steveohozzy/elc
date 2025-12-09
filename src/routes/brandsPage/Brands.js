@@ -533,7 +533,7 @@ const Brands = () => {
                     {/* Brand Filters with Search */}
                     <Dropdown
                       title="Brands"
-                      className="w-full text-brandBlue flex items-center border-b-2 border-b-textBlue py-3"
+                      className="w-full text-gray-500 flex items-center border-b-2 border-b-textBlue py-3 font-semibold"
                       answer={
                         <>
                           <div className="relative my-3">
@@ -570,7 +570,7 @@ const Brands = () => {
                     {/* Age Group Filters */}
                     <Dropdown
                       title="Age Groups"
-                      className="w-full text-brandBlue flex items-center border-b-2 border-b-textBlue py-3"
+                      className="w-full text-gray-500 flex items-center border-b-2 border-b-textBlue py-3 font-semibold"
                       answer={
                         <div className="space-y-3 pt-3">
                           {ageGroups.map((age) => {
@@ -603,7 +603,7 @@ const Brands = () => {
                                     </g>
                                   </svg>
                                 </span>
-                                <span className="text-sm text-brandBlue">
+                                <span className="text-sm text-gray-500">
                                   {age.name} ({count})
                                 </span>
                               </label>
@@ -615,7 +615,7 @@ const Brands = () => {
                     {/* Features Filters */}
                     <Dropdown
                       title="Features"
-                       className="w-full text-brandBlue flex items-center border-b-2 border-b-textBlue py-3"
+                       className="w-full text-gray-500 flex items-center border-b-2 border-b-textBlue py-3 font-semibold"
                        answer={
                         <div className="space-y-3 pt-3">
                         {features.map((feature) => {
@@ -648,7 +648,7 @@ const Brands = () => {
                                   </g>
                                 </svg>
                               </span>
-                              <span className="text-sm text-brandBlue">
+                              <span className="text-sm text-gray-500">
                                 {feature.name} ({count})
                               </span>
                             </label>
@@ -661,7 +661,7 @@ const Brands = () => {
                     {/* Size Filters */}
                     <Dropdown
                       title="Size"
-                      className="w-full text-brandBlue flex items-center border-b-2 border-b-textBlue py-3"
+                      className="w-full text-gray-500 flex items-center border-b-2 border-b-textBlue py-3 font-semibold"
                       answer={
                         <div className="space-y-3 pt-3">
                         {sizes.map((size) => {
@@ -694,7 +694,7 @@ const Brands = () => {
                                   </g>
                                 </svg>
                               </span>
-                              <span className="text-sm text-brandBlue">
+                              <span className="text-sm text-gray-500">
                                 {size.name} ({count})
                               </span>
                             </label>
@@ -707,7 +707,7 @@ const Brands = () => {
                     {/* Price Range */}
                     <Dropdown
                       title="Price Range"
-                      className="w-full text-brandBlue flex items-center border-b-2 border-b-textBlue py-3"
+                      className="w-full text-gray-500 flex items-center border-b-2 border-b-textBlue py-3 font-semibold"
                       answer={
                         <div className="space-y-3">
                         <div className="flex items-center space-x-2 mt-3">
@@ -739,7 +739,7 @@ const Brands = () => {
                             className="flex h-10 rounded-md border border-input bg-background px-3 py-2 placeholder:text-muted-foreground text-brandBlue w-20 text-sm"
                           />
                         </div>
-                        <div className="text-sm text-brandBlue">
+                        <div className="text-sm text-gray-500">
                           £{priceRange[0]} - £{priceRange[1]}
                         </div>
                       </div>
@@ -749,7 +749,7 @@ const Brands = () => {
                     {/* Additional Filters */}
                     <Dropdown
                       title="Additional Filters"
-                      className="w-full text-brandBlue flex items-center border-b-2 border-b-textBlue py-3"
+                      className="w-full text-gray-500 flex items-center border-b-2 border-b-textBlue py-3 font-semibold"
                       answer={
                         <div className="space-y-3">
                         <label className="relative flex items-center space-x-2 cursor-pointer mt-3">
@@ -778,7 +778,7 @@ const Brands = () => {
                               </g>
                             </svg>
                           </span>
-                          <span className="text-sm text-brandBlue">
+                          <span className="text-sm text-gray-500">
                             In Stock Only
                           </span>
                         </label>
@@ -797,7 +797,7 @@ const Brands = () => {
             {/* Active Filters Display */}
             {hasActiveFilters && (
               <div className="flex flex-wrap items-center gap-2 my-2 w-full">
-                <span className="text-sm text-brandBlue font-medium">
+                <span className="text-sm text-gray-500 font-medium">
                   Active filters:
                 </span>
                 {selectedBrands.map((brand) => (
