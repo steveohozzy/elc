@@ -1,13 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Star, Heart, Eye} from "lucide-react";
+import { Star, Heart, Eye } from "lucide-react";
 import { useSelector } from "react-redux";
 
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 
-import { setIsCartOpen, addItemToCart } from '../../store/cart/cartReducer';
+import { setIsCartOpen, addItemToCart } from "../../store/cart/cartReducer";
 
-import { addItemToWishlist, removeItemFromWishlist } from "../../store/wishlist/wishlistReducer";
+import {
+  addItemToWishlist,
+  removeItemFromWishlist,
+} from "../../store/wishlist/wishlistReducer";
 
 import { selectWishlistItems } from "../../store/wishlist/wishlistSelector";
 
@@ -36,7 +39,7 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   // swap colours
-  const [swatchColor, setSwatchColor] = useState('blue');
+  const [swatchColor, setSwatchColor] = useState("blue");
   //show stores
   const [storesOpen, setStoresOpen] = useState(false);
 
@@ -46,28 +49,28 @@ const ProductCard = ({ product }) => {
     navigate("/product-details/" + product.id);
     setTimeout(() => {
       window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-    }, 250)
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    }, 250);
   };
 
   const addProductToCart = () => {
     dispatch(addItemToCart(product));
     closeQuickView();
     dispatch(setIsCartOpen(true));
-    document.body.classList.add('body-noscroll');
-    window.scrollBy(0 , -2)
-  }
+    document.body.classList.add("body-noscroll");
+    window.scrollBy(0, -2);
+  };
 
   const addProductToWishlist = () => {
     dispatch(addItemToWishlist(product));
-  }
+  };
 
   const removeProductFromWishlist = () => {
     dispatch(removeItemFromWishlist(product));
-  }
+  };
 
   // Quick view modal state
   const [quickViewProduct, setQuickViewProduct] = useState(null);
@@ -86,13 +89,13 @@ const ProductCard = ({ product }) => {
 
   useEffect(() => {
     localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
-  }, [wishlistItems])
+  }, [wishlistItems]);
 
   function useOutsideAlerter(ref) {
     useEffect(() => {
       function handleClickOutside(event) {
         if (ref.current && !ref.current.contains(event.target)) {
-         closeQuickView();
+          closeQuickView();
         }
       }
       // Bind the event listener
@@ -111,7 +114,10 @@ const ProductCard = ({ product }) => {
       {/* Quick View Modal */}
       {quickViewProduct && (
         <div className="fixed inset-0 z-[700] bg-brandBlue/60">
-          <div ref={wrapperRef} className="fixed left-[50%] top-[50%] z-50 grid w-full translate-x-[-50%] translate-y-[-50%] gap-4 border bg-white p-6 shadow-lg sm:rounded-lg max-w-4xl max-h-[90vh] overflow-y-auto">
+          <div
+            ref={wrapperRef}
+            className="fixed left-[50%] top-[50%] z-50 grid w-full translate-x-[-50%] translate-y-[-50%] gap-4 border bg-white p-6 shadow-lg sm:rounded-lg max-w-4xl max-h-[90vh] overflow-y-auto"
+          >
             <div className="relative flex flex-col gap-4">
               {quickViewProduct && (
                 <>
@@ -190,44 +196,72 @@ const ProductCard = ({ product }) => {
                                 src={image}
                                 alt={product.name}
                               />
-                              {swatchColor === 'orange' && <span className="absolute top-1/2 left-1/2 -rotate-45 text-orange-600 font-bold text-[100px] -translate-y-1/2 -translate-x-1/2">ORANGE</span>}
+                              {swatchColor === "orange" && (
+                                <span className="absolute top-1/2 left-1/2 -rotate-45 text-orange-600 font-bold text-[100px] -translate-y-1/2 -translate-x-1/2">
+                                  ORANGE
+                                </span>
+                              )}
                             </SwiperSlide>
                           ))}
                         </Swiper>
                         <div className="absolute top-3 right-3 z-[1]">
                           <button
-                            onClick={wishlistItems.some(item => product.id === item.id) ? removeProductFromWishlist : addProductToWishlist}
+                            onClick={
+                              wishlistItems.some(
+                                (item) => product.id === item.id
+                              )
+                                ? removeProductFromWishlist
+                                : addProductToWishlist
+                            }
                             name="Add to favourites"
                             className={`relative inline-flex items-center justify-center gap-2 whitespace-nowrap text-lg  h-10  transition-all hover:scale-105 hover:text-brandPink`}
                           >
                             <Heart
                               className={`h-6 md:h-10 w-6 md:w-10 ${
-                                wishlistItems.some(item => product.id === item.id)
+                                wishlistItems.some(
+                                  (item) => product.id === item.id
+                                )
                                   ? "text-brandPink animate-bigheart"
                                   : "text-brandBlue"
                               }`}
                               fill={
-                                wishlistItems.some(item => product.id === item.id) ? "#FF7BAC" : "transparent"
+                                wishlistItems.some(
+                                  (item) => product.id === item.id
+                                )
+                                  ? "#FF7BAC"
+                                  : "transparent"
                               }
                             />
                             <Heart
                               className={`absolute bottom-0 left-[-6px] 0 h-[5px] md:h-[10px] w-[5px] md:w-[10px] opacity-0 text-transparent ${
-                                wishlistItems.some(item => product.id === item.id)
+                                wishlistItems.some(
+                                  (item) => product.id === item.id
+                                )
                                   ? "animate-miniheartleft text-brandPink"
                                   : "text-brandBlue"
                               }`}
                               fill={
-                                wishlistItems.some(item => product.id === item.id) ? "#FF7BAC" : "transparent"
+                                wishlistItems.some(
+                                  (item) => product.id === item.id
+                                )
+                                  ? "#FF7BAC"
+                                  : "transparent"
                               }
                             />
                             <Heart
                               className={`absolute bottom-0 right-[-4px] h-[5px] md:h-[10px] w-[5px] md:w-[10px] opacity-0 text-transparent ${
-                                wishlistItems.some(item => product.id === item.id)
+                                wishlistItems.some(
+                                  (item) => product.id === item.id
+                                )
                                   ? "animate-miniheartright text-brandPink"
                                   : "text-brandBlue"
                               }`}
                               fill={
-                                wishlistItems.some(item => product.id === item.id) ? "#FF7BAC" : "transparent"
+                                wishlistItems.some(
+                                  (item) => product.id === item.id
+                                )
+                                  ? "#FF7BAC"
+                                  : "transparent"
                               }
                             />
                             <span className="sr-only">Add to favourites</span>
@@ -240,13 +274,24 @@ const ProductCard = ({ product }) => {
                     <div className="space-y-3 md:space-y-6">
                       <div>
                         <h2 className="text-xl md:text-3xl font-bold text-brandBlue text-left">
-                          {product.name} {swatchColor === 'orange' && <span className="text-orange-600">ORANGE</span>}
+                          {product.name}{" "}
+                          {swatchColor === "orange" && (
+                            <span className="text-orange-600">ORANGE</span>
+                          )}
                         </h2>
-                        <button className="text-gray-400 text-xs underline mt-0" onClick={() => {goToLinkHandler(product); window.scrollTo({
-                          top: 0,
-                          left: 0,
-                          behavior: "smooth",
-                        });}}>View full product</button>
+                        <button
+                          className="text-gray-400 text-xs underline mt-0"
+                          onClick={() => {
+                            goToLinkHandler(product);
+                            window.scrollTo({
+                              top: 0,
+                              left: 0,
+                              behavior: "smooth",
+                            });
+                          }}
+                        >
+                          View full product
+                        </button>
                       </div>
                       <div className="flex flex-wrap items-start justify-between mt-0">
                         <div className="flex flex-col items-start w-1/2 md:w-auto justify-between">
@@ -283,12 +328,50 @@ const ProductCard = ({ product }) => {
                         <div className="w-full md:w-auto mb-0">
                           <div className="flex flex-wrap items-center notices justify-end">
                             <span className="flex items-center justify-between text-brandNeonBlue border-[2px] border-brandNeonBlue p-2 rounded-md mb-2 md:mb-0 w-full md:w-auto font-bold">
-                              <span className="font-semibold">Other styles</span>
+                              <span className="font-semibold">
+                                Other styles
+                              </span>
                               <div className="flex items-center">
-                                <button onClick={() => setSwatchColor('blue')} className={`transition-all rounded-full bg-brandNeonBlue w-[20px] md:w-[25px] h-[20px] md:h-[25px] border-[3px] ml-3 hover:border-brandBlue ${swatchColor === 'blue' ? 'border-brandBlue' : 'border-brandNeonBlue'}`}><span className="sr-only">Blue</span></button>
-                                <button onClick={() => setSwatchColor('orange')} className={`rounded-full bg-orange-300 w-[20px] md:w-[25px] h-[20px] md:h-[25px] border-[3px]  ml-3 transition-all hover:border-orange-500 ${swatchColor === 'orange' ? 'border-orange-500' : 'border-orange-300'}`}><span className="sr-only">Orange</span></button>
-                                <button onClick={() => setSwatchColor('black')}  className={`rounded-full bg-black w-[20px] md:w-[25px] h-[20px] md:h-[25px] border-[3px] ml-3 transition-all hover:border-gray-500 ${swatchColor === 'black' ? 'border-gray-500' : 'border-black'}`}><span className="sr-only">Black</span></button>
-                                <button onClick={() => setSwatchColor('red')}  className={`rounded-full bg-red-500 w-[20px] md:w-[25px] h-[20px] md:h-[25px] border-[3px] ml-3 transition-all hover:border-red-700 ${swatchColor === 'red' ? 'border-red-700' : 'border-red-500'}`}><span className="sr-only">red</span></button>
+                                <button
+                                  onClick={() => setSwatchColor("blue")}
+                                  className={`transition-all rounded-full bg-brandNeonBlue w-[20px] md:w-[25px] h-[20px] md:h-[25px] border-[3px] ml-3 hover:border-brandBlue ${
+                                    swatchColor === "blue"
+                                      ? "border-brandBlue"
+                                      : "border-brandNeonBlue"
+                                  }`}
+                                >
+                                  <span className="sr-only">Blue</span>
+                                </button>
+                                <button
+                                  onClick={() => setSwatchColor("orange")}
+                                  className={`rounded-full bg-orange-300 w-[20px] md:w-[25px] h-[20px] md:h-[25px] border-[3px]  ml-3 transition-all hover:border-orange-500 ${
+                                    swatchColor === "orange"
+                                      ? "border-orange-500"
+                                      : "border-orange-300"
+                                  }`}
+                                >
+                                  <span className="sr-only">Orange</span>
+                                </button>
+                                <button
+                                  onClick={() => setSwatchColor("black")}
+                                  className={`rounded-full bg-black w-[20px] md:w-[25px] h-[20px] md:h-[25px] border-[3px] ml-3 transition-all hover:border-gray-500 ${
+                                    swatchColor === "black"
+                                      ? "border-gray-500"
+                                      : "border-black"
+                                  }`}
+                                >
+                                  <span className="sr-only">Black</span>
+                                </button>
+                                <button
+                                  onClick={() => setSwatchColor("red")}
+                                  className={`rounded-full bg-red-500 w-[20px] md:w-[25px] h-[20px] md:h-[25px] border-[3px] ml-3 transition-all hover:border-red-700 ${
+                                    swatchColor === "red"
+                                      ? "border-red-700"
+                                      : "border-red-500"
+                                  }`}
+                                >
+                                  <span className="sr-only">red</span>
+                                </button>
                               </div>
                             </span>
                           </div>
@@ -310,7 +393,8 @@ const ProductCard = ({ product }) => {
                             <span className="font-bold ml-3 text-sm md:text-md text-brandGreen">
                               3 in stock in Amersham
                             </span>
-                            <button className="text-xs text-gray-400 underline ml-3"
+                            <button
+                              className="text-xs text-gray-400 underline ml-3"
                               onClick={() => setStoresOpen(!storesOpen)}
                             >
                               Select another store
@@ -354,10 +438,14 @@ const ProductCard = ({ product }) => {
                                         map view
                                       </button>
                                     </div>
-                                    <span className="text-sm text-gray-400">Results</span>
+                                    <span className="text-sm text-gray-400">
+                                      Results
+                                    </span>
                                   </div>
                                   <div className="text-sm text-brandBlue py-4">
-                                    <span className="font-semibold">The Entertainer Amersham</span>
+                                    <span className="font-semibold">
+                                      The Entertainer Amersham
+                                    </span>
                                     <br />2 Sycamore Road, Amersham HP6 5DR
                                     <div className="text-gray-400 mt-2">
                                       Collect within 30 minutes for FREE
@@ -372,7 +460,7 @@ const ProductCard = ({ product }) => {
                           arrowAgainstWord={true}
                           title="More Details"
                           swapActiveTitle={true}
-                          activeTitle={'Less Details'}
+                          activeTitle={"Less Details"}
                           className="text-brandBlue font-semibold text-base flex items-center justify-center border-[3px] border-gray-400 rounded-full w-full py-2 [&_.border-r-transparent]:hidden"
                           answer={
                             <div className="py-3 text-textBlue">
@@ -385,40 +473,47 @@ const ProductCard = ({ product }) => {
                                 Each die-cast truck captures the style and
                                 personality of a fan-favourite Monster Truck
                                 character or creature in 1:64 scale. Add in the
-                                six massive wheels and this rig can also transport
-                                an additional Hot Wheels Monster Truck (sold
-                                separately) with either a tow hook or on the
-                                flatbed!
+                                six massive wheels and this rig can also
+                                transport an additional Hot Wheels Monster Truck
+                                (sold separately) with either a tow hook or on
+                                the flatbed!
                               </p>
 
-                              <p className="mb-2 font-semibold text-lg">Product features:</p>
+                              <p className="mb-2 font-semibold text-lg">
+                                Product features:
+                              </p>
                               <ul className="list-none">
                                 <li className="flex items-start mb-3 before:aspect-square before:mt-1.5 before:mr-2 before:block before:h-2.5 before:w-2.5 before:rounded-full before:bg-brandBlue">
-                                  Includes: 1x Hot Wheels Monster Trucks Big Rigs Vehicle
-                                  (styles vary) Get the adventures movin' with a Hot Wheels
-                                  Monster Trucks Big Rig!
+                                  Includes: 1x Hot Wheels Monster Trucks Big
+                                  Rigs Vehicle (styles vary) Get the adventures
+                                  movin' with a Hot Wheels Monster Trucks Big
+                                  Rig!
                                 </li>
                                 <li className="flex items-start mb-3 before:aspect-square before:mt-1.5 before:mr-2 before:block before:h-2.5 before:w-2.5 before:rounded-full before:bg-brandBlue">
-                                  These Big Rigs feature six wheels to go even bigger on the
-                                  Monster Truck action
+                                  These Big Rigs feature six wheels to go even
+                                  bigger on the Monster Truck action
                                 </li>
                                 <li className="flex items-start mb-3 before:aspect-square before:mt-1.5 before:mr-2 before:block before:h-2.5 before:w-2.5 before:rounded-full before:bg-brandBlue">
-                                  Each 1:64 scale die-cast vehicle captures the personality
-                                  of fan-favourite Monster Truck creatures and characters
-                                  with the eye-catching designs that fans love
+                                  Each 1:64 scale die-cast vehicle captures the
+                                  personality of fan-favourite Monster Truck
+                                  creatures and characters with the eye-catching
+                                  designs that fans love
                                 </li>
                                 <li className="flex items-start mb-3 before:aspect-square before:mt-1.5 before:mr-2 before:block before:h-2.5 before:w-2.5 before:rounded-full before:bg-brandBlue">
-                                  Kids can haul additional 1:64 scale vehicles on the
-                                  flatbed or with a tow hook on the Big Rig (sold
-                                  separately)
+                                  Kids can haul additional 1:64 scale vehicles
+                                  on the flatbed or with a tow hook on the Big
+                                  Rig (sold separately)
                                 </li>
                                 <li className="flex items-start mb-3 before:aspect-square before:mt-1.5 before:mr-2 before:block before:h-2.5 before:w-2.5 before:rounded-full before:bg-brandBlue">
                                   Suitable for ages 3 years +
                                 </li>
                               </ul>
-                              <p className="text-lg font-bold mt-4">Specifications</p>
+                              <p className="text-lg font-bold mt-4">
+                                Specifications
+                              </p>
                               <p className="mb-1">
-                                Manufacturer: <span className="font-bold">MATTEL TOYS</span>
+                                Manufacturer:{" "}
+                                <span className="font-bold">MATTEL TOYS</span>
                               </p>
                               <p className="mb-1">
                                 Manufacturer Number:
@@ -428,13 +523,11 @@ const ProductCard = ({ product }) => {
                                 Our Product Number:
                                 <span className="font-bold">566798</span>
                               </p>
-                              <p>
-                                Safety Information:
-                              </p>
+                              <p>Safety Information:</p>
                               <p>
                                 <span className="font-bold">
-                                  WARNING. Not suitable for children under 36 months. Small
-                                  Parts. Choking Hazard.
+                                  WARNING. Not suitable for children under 36
+                                  months. Small Parts. Choking Hazard.
                                 </span>
                               </p>
                             </div>
@@ -508,24 +601,42 @@ const ProductCard = ({ product }) => {
               className="absolute p-2 inset-0 w-full object-cover opacity-0 group-hover:opacity-100 transition-all duration-300"
             />
           </button>
-          
-          
-          <div className="absolute flex w-full gap-1 flex justify-center drop-shadow-md">
-            {isNew && (
-              <div className="inline-flex items-center rounded-lg px-2 py-0.5 text-xs md:text-sm font-bold bg-brandGreen text-white">
-                <span className="shadow-text-green">NEW TOYS</span>
-              </div>
-            )}
-            {isBestseller && (
-              <div className="inline-flex items-center rounded-lg px-2 py-0.5 text-xs md:text-sm font-bold bg-brandRed text-white">
-                <span className="shadow-text-red ">33% OFF</span>
-              </div>
-            )}
-          </div>
+
+          <div className="relative w-full flex justify-center">
+  {isNew && isBestseller ? (
+    <div className="pt-3 flex justify-center items-center w-full h-full relative">
+      {/* NEW TOYS → fades out smoothly */}
+      <div className="absolute inline-flex items-center rounded-lg px-2 py-0.5 text-xs md:text-sm font-bold bg-brandGreen text-white animate-crossfade-1">
+        <span className="shadow-text-green">NEW TOYS</span>
+      </div>
+
+      {/* 33% OFF → fades in smoothly */}
+      <div className="absolute inline-flex items-center rounded-lg px-2 py-0.5 text-xs md:text-sm font-bold bg-brandRed text-white animate-crossfade-2">
+        <span className="shadow-text-red">33% OFF</span>
+      </div>
+    </div>
+  ) : (
+    <>
+      {isNew && (
+        <div className="absolute inline-flex items-center rounded-lg px-2 py-0.5 text-xs md:text-sm font-bold bg-brandGreen text-white">
+          <span className="shadow-text-green">NEW TOYS</span>
+        </div>
+      )}
+      {isBestseller && (
+        <div className="absolute inline-flex items-center rounded-lg px-2 py-0.5 text-xs md:text-sm font-bold bg-brandRed text-white">
+          <span className="shadow-text-red">33% OFF</span>
+        </div>
+      )}
+    </>
+  )}
+</div>
+
         </div>
         <div className="p-4 flex flex-col grow">
           <div className="flex flex-wrap justify-center mb-1">
-            <div className="inline-flex items-center text-xs text-gray-400">{brand}</div>
+            <div className="inline-flex items-center text-xs text-gray-400">
+              {brand}
+            </div>
           </div>
           <button className="flex flex-col h-full" onClick={goToLinkHandler}>
             <h2 className="text-gray-600 font-bold text-sm md:text-base leading-tight line-clamp-2">
@@ -542,41 +653,57 @@ const ProductCard = ({ product }) => {
               )}
             </div>
           </button>
-            <div className="flex items-center justify-between">
-              <div className="flex flex-col transition-opacity">
-                <button
-                  onClick={wishlistItems.some(item => product.id === item.id) ? removeProductFromWishlist : addProductToWishlist}
-                  name="Add to favourites"
-                  className={`relative inline-flex items-center justify-center whitespace-nowrap text-lg h-4 md:h-6  transition-all hover:scale-105 hover:text-brandPink`}
-                >
-                  <Heart
-                    className={`h-5 md:h-6 w-3 md:w-6 ${
-                      wishlistItems.some(item => product.id === item.id)
-                        ? "text-brandPink animate-bigheart"
-                        : "text-brandBlue"
-                    }`}
-                    fill={wishlistItems.some(item => product.id === item.id) ? "#FF7BAC" : "transparent"}
-                  />
-                  <Heart
-                    className={`absolute bottom-0 left-1 h-2 w-2 opacity-0 text-transparent ${
-                      wishlistItems.some(item => product.id === item.id)
-                        ? "animate-miniheartleft text-brandPink"
-                        : "text-brandBlue"
-                    }`}
-                    fill={wishlistItems.some(item => product.id === item.id) ? "#FF7BAC" : "transparent"}
-                  />
-                  <Heart
-                    className={`absolute bottom-0 right-2 h-2 w-2 opacity-0 text-transparent ${
-                      wishlistItems.some(item => product.id === item.id)
-                        ? "animate-miniheartright text-brandPink"
-                        : "text-brandBlue"
-                    }`}
-                    fill={wishlistItems.some(item => product.id === item.id) ? "#FF7BAC" : "transparent"}
-                  />
-                  <span className="sr-only">Add to favourites</span>
-                </button>
-              </div>
-              <button className="flex flex-col" onClick={goToLinkHandler}>
+          <div className="flex items-center justify-between">
+            <div className="flex flex-col transition-opacity">
+              <button
+                onClick={
+                  wishlistItems.some((item) => product.id === item.id)
+                    ? removeProductFromWishlist
+                    : addProductToWishlist
+                }
+                name="Add to favourites"
+                className={`relative inline-flex items-center justify-center whitespace-nowrap text-lg h-4 md:h-6  transition-all hover:scale-105 hover:text-brandPink`}
+              >
+                <Heart
+                  className={`h-5 md:h-6 w-3 md:w-6 ${
+                    wishlistItems.some((item) => product.id === item.id)
+                      ? "text-brandPink animate-bigheart"
+                      : "text-brandBlue"
+                  }`}
+                  fill={
+                    wishlistItems.some((item) => product.id === item.id)
+                      ? "#FF7BAC"
+                      : "transparent"
+                  }
+                />
+                <Heart
+                  className={`absolute bottom-0 left-1 h-2 w-2 opacity-0 text-transparent ${
+                    wishlistItems.some((item) => product.id === item.id)
+                      ? "animate-miniheartleft text-brandPink"
+                      : "text-brandBlue"
+                  }`}
+                  fill={
+                    wishlistItems.some((item) => product.id === item.id)
+                      ? "#FF7BAC"
+                      : "transparent"
+                  }
+                />
+                <Heart
+                  className={`absolute bottom-0 right-2 h-2 w-2 opacity-0 text-transparent ${
+                    wishlistItems.some((item) => product.id === item.id)
+                      ? "animate-miniheartright text-brandPink"
+                      : "text-brandBlue"
+                  }`}
+                  fill={
+                    wishlistItems.some((item) => product.id === item.id)
+                      ? "#FF7BAC"
+                      : "transparent"
+                  }
+                />
+                <span className="sr-only">Add to favourites</span>
+              </button>
+            </div>
+            <button className="flex flex-col" onClick={goToLinkHandler}>
               <div className="flex items-center">
                 <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                 <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
@@ -585,16 +712,16 @@ const ProductCard = ({ product }) => {
                 <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                 <span className="text-xs text-textBlue ml-1">(3)</span>
               </div>
-              </button>
-              <button
-                  name="quick view"
-                  className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium h-6 rounded-md pl-2 transition-all hover:scale-105"
-                  onClick={() => openQuickView(product)}
-                >
-                  <Eye className="h-5 md:h-6 w-3 md:w-6 text-textBlue hover:text-brandBlue transition-all" />
-                  <span className="sr-only">Open quick view</span>
-                </button>
-            </div>
+            </button>
+            <button
+              name="quick view"
+              className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium h-6 rounded-md pl-2 transition-all hover:scale-105"
+              onClick={() => openQuickView(product)}
+            >
+              <Eye className="h-5 md:h-6 w-3 md:w-6 text-textBlue hover:text-brandBlue transition-all" />
+              <span className="sr-only">Open quick view</span>
+            </button>
+          </div>
           <div className="flex items-center justify-center">
             <Button
               className="shadow-md hover:shadow-lg w-full group inline-flex items-center justify-center font-bold text-base rounded-[30px] bg-brandGreen text-white py-2 px-4 pl-0 transition-all hover:bg-brandLightGreen hover:scale-105 mt-1"

@@ -35,9 +35,21 @@ module.exports = {
         'wave': 'wave 0.8s 5 ease-in-out',
         'fadeIn' : 'fadeIn 0.3s ease-out',
         'whoo' : 'whoo 1.5s ease-out infinite',
-        'hoo' : 'hoo 1.5s ease-out infinite'
+        'hoo' : 'hoo 1.5s ease-out infinite',
+        'crossfade-1': 'crossfade1 4s linear infinite',
+        'crossfade-2': 'crossfade2 4s linear infinite',
       },
       keyframes: {
+        crossfade1: {
+          '0%': { opacity: '1' },
+          '50%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        crossfade2: {
+          '0%': { opacity: '0' },
+          '50%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
         bigheart: {
           '0%, 100%': {
             transform: 'rotate(0deg) translateY(0) translateX(0)',
