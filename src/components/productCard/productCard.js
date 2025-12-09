@@ -603,33 +603,33 @@ const ProductCard = ({ product }) => {
           </button>
 
           <div className="relative w-full flex justify-center">
-  {isNew && isBestseller ? (
-    <div className="pt-3 flex justify-center items-center w-full h-full relative">
-      {/* NEW TOYS → fades out smoothly */}
-      <div className="absolute inline-flex items-center rounded-lg px-2 py-0.5 text-xs md:text-sm font-bold bg-brandGreen text-white animate-crossfade-1">
-        <span className="shadow-text-green">NEW TOYS</span>
-      </div>
+            {isNew && isBestseller ? (
+              <div className="flex justify-center items-center w-full h-full relative">
+                {/* NEW TOYS → fades out smoothly */}
+                <div className="absolute inline-flex items-center rounded-lg px-2 top-1 py-0.5 text-xs md:text-sm font-bold bg-brandGreen text-white animate-crossfade-1">
+                  <span className="shadow-text-green">NEW TOYS</span>
+                </div>
 
-      {/* 33% OFF → fades in smoothly */}
-      <div className="absolute inline-flex items-center rounded-lg px-2 py-0.5 text-xs md:text-sm font-bold bg-brandRed text-white animate-crossfade-2">
-        <span className="shadow-text-red">33% OFF</span>
-      </div>
-    </div>
-  ) : (
-    <>
-      {isNew && (
-        <div className="absolute inline-flex items-center rounded-lg px-2 py-0.5 text-xs md:text-sm font-bold bg-brandGreen text-white">
-          <span className="shadow-text-green">NEW TOYS</span>
-        </div>
-      )}
-      {isBestseller && (
-        <div className="absolute inline-flex items-center rounded-lg px-2 py-0.5 text-xs md:text-sm font-bold bg-brandRed text-white">
-          <span className="shadow-text-red">33% OFF</span>
-        </div>
-      )}
-    </>
-  )}
-</div>
+                {/* 33% OFF → fades in smoothly */}
+                <div className="absolute inline-flex items-center rounded-lg top-1 px-2 py-0.5 text-xs md:text-sm font-bold bg-brandRed text-white animate-crossfade-2">
+                  <span className="shadow-text-red">33% OFF</span>
+                </div>
+              </div>
+            ) : (
+              <>
+                {isNew && (
+                  <div className="absolute inline-flex items-center rounded-lg px-2 py-0.5 text-xs md:text-sm font-bold bg-brandGreen text-white">
+                    <span className="shadow-text-green">NEW TOYS</span>
+                  </div>
+                )}
+                {isBestseller && (
+                  <div className="absolute inline-flex items-center rounded-lg px-2 py-0.5 text-xs md:text-sm font-bold bg-brandRed text-white">
+                    <span className="shadow-text-red">33% OFF</span>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
 
         </div>
         <div className="p-4 flex flex-col grow">
