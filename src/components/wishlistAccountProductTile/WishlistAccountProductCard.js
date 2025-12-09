@@ -180,7 +180,7 @@ const WishlistAccountProductCard = ({ product }) => {
                     {/* Product Details */}
                     <div className="space-y-3 md:space-y-6">
                       <div>
-                        <h2 className="text-xl md:text-3xl font-bold text-brandBlue text-left">
+                        <h2 className="text-xl md:text-3xl font-bold text-gray-500 text-left">
                           {product.name} {swatchColor === 'orange' && <span className="text-orange-600">ORANGE</span>}
                         </h2>
                         <button className="text-gray-400 text-xs underline mt-0" onClick={() => {goToLinkHandler(product); window.scrollTo({
@@ -223,7 +223,7 @@ const WishlistAccountProductCard = ({ product }) => {
                       <div className="flex flex-wrap items-end justify-between pb-6 border-b-[3px] border-gray-300 md:flex-row">
                         <div className="w-full md:w-auto mb-0">
                           <div className="flex flex-wrap items-center notices justify-end">
-                            <span className="flex items-center justify-between text-brandNeonBlue border-[2px] border-brandNeonBlue p-2 rounded-md mb-2 md:mb-0 w-full md:w-auto font-bold">
+                            <span className="flex items-center justify-between text-brandBlue border-[2px] border-brandBlue p-2 rounded-md mb-2 xl:mb-0 w-full lg:w-auto font-bold">
                               <span className="font-semibold">Other styles</span>
                               <div className="flex items-center">
                                 <button onClick={() => setSwatchColor('blue')} className={`transition-all rounded-full bg-brandNeonBlue w-[20px] md:w-[25px] h-[20px] md:h-[25px] border-[3px] ml-3 hover:border-brandBlue ${swatchColor === 'blue' ? 'border-brandBlue' : 'border-brandNeonBlue'}`}><span className="sr-only">Blue</span></button>
